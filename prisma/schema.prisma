@@ -18,8 +18,8 @@ model Reservation {
   date DateTime
   customer Customer @relation(fields: [customerId], references: [id])
   customerId Int
-  restraunt Restaurant @relation(fields: [restrauntId], references: [id])
-  restrauntId Int
+  Restaurant Restaurant @relation(fields: [restaurantId], references: [id])
+  restaurantId Int
   partyCount Int @default(1)
 }
 model Customer {
