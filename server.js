@@ -43,6 +43,24 @@ app.get("/api/customers", async (req, res, next) => {
     }
 })
 
+// POST Reservation
+app.get("/api/customers/:customerId/reservations", async (req, res, next) => {
+    try {
+        const {restaurantId, date, partyCount} = req.body
+        const reservation = await prisma.reservation.create({
+            data:{
+                restaurantId,
+                date,
+                partyCount
+            }
+        })
+        res.sendStatus(201)
+        res.json(reservation)
+    } catch (error) {
+        next(error)
+    }
+})
+// DELETE Reservation
 
 app.listen(PORT, () => {
     console.log(`Server listening on port ${PORT}`)
