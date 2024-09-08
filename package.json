@@ -12,6 +12,7 @@
     "seed": "node prisma/seed.js"
   },
   "scripts": {
-    "start:dev": "nodemon server.js"
+    "start:dev": "npm run kill && nodemon server.js",
+    "kill": "npx kill-port 3000"
   }
 }
